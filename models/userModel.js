@@ -10,13 +10,13 @@ const UserSchema = new Schema(
 
     email: { type: String, required: true },
 
-    group: { type: String, default: "0", unique: true},
+    group: { type: String, default: "0", unique: true },
 
-    password: { type: String, unique: true },
+    password: { type: String },
 
     image: { type: String, unique: true },
 
-    //for Clerk
+    // for Clerk
     clerkId: { type: String },
 
     role: { type: String, default: "student" },
@@ -30,10 +30,12 @@ const UserSchema = new Schema(
 
     result: { type: Number, default: 0 },
 
-    updatedAt: { type: Date, default: Date.now }, // corectat typo-ul aici
+    loggedInAt: { type: Date, default: Date.now },
+
+    updatedAt: { type: Date, default: Date.now },
   },
   {
-    timestamps: { createdAt: true, updatedAt: true }, // automatically create "createdAt & updatedAt"
+    timestamps: { createdAt: true, updatedAt: true }, 
   }
 );
 
